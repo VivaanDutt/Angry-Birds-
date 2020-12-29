@@ -1,6 +1,6 @@
 class Slingshot {
     constructor(bodyA, pointB) {
-        var options = { bodyA: bodyA, pointB: pointB, stiffness: 0.04, length: 10 };
+        var options = { bodyA: bodyA, pointB: pointB, stiffness: 0.04, length: 5 };
         this.sling1 = loadImage("sprites/sling1.png");
         this.sling2 = loadImage("sprites/sling2.png");
         this.sling3 = loadImage("sprites/sling3.png");
@@ -38,5 +38,9 @@ class Slingshot {
 
     fly() {
         this.sling.bodyA = null;
+    }
+
+    attach(body) {
+       this.sling.bodyA = body;
     }
 }  
