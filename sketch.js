@@ -80,9 +80,9 @@ function draw() {
 }
 
 function mouseDragged() {
-    if (gameState !== "launch") {
+//     if (gameState !== "launch") {
         Matter.Body.setPosition(bird.body, { x: mouseX, y: mouseY });
-    }
+    // }
 }
 
 function mouseReleased() {
@@ -90,18 +90,13 @@ function mouseReleased() {
     gameState = "launch";
 }
 
-// function keyPressed() {
-//     if (keyCode === 32) {
-//         sling.attach(bird.body);
-
-//     }
-// }
-
-// async function getTime() {
-//     var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Tokyo");
-//     var responseJson = await response.json();
-//     console.log(responseJson.datetime);
-// }
+function keyPressed() {
+    if (keyCode === 32) {
+        bird.trajectory = [];
+        Matter.Body.setPosition(bird.body, {x: 200, y: 50});
+        sling.attach(bird.body);
+    }
+}
 
 async function getBackgroundImg() {
     var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Tokyo");
